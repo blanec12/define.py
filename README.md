@@ -1,6 +1,6 @@
 # define.py
 
-A small CLI dictionary tool that lets me look up word definitions, pronunciations, and related words directly from the terminal using the Wordnik API.
+A small CLI dictionary tool that lets me look up word definitions, pronunciations, and related words directly from the terminal using the [Wordnik API](https://developer.wordnik.com/).
 
 This is my first personal project built while working through [boot.dev](https://www.boot.dev), with the goal of building something practical that I'd actually use.
 

@@ -38,6 +38,41 @@ RELATED WORDS:
 ======================================================================
 ```
 
+## How to run this?
+
+This project uses [uv](https://docs.astral.sh/uv/) for dependency management.
+
+1. Clone the repository:
+```bash
+git clone https://github.com/blanec12/define.py.git
+cd define.py
+```
+
+2. Install dependencies:
+```bash
+uv sync
+```
+
+3. Create a `.env` file in the project root with your Wordnik API key:
+```bash
+echo 'WORDNIK_API_KEY="<your_api_key_here>"' > .env
+```
+
+4. Run the script from the project directory:
+```bash
+uv run main.py <word>
+```
+
+Optional: If you want to run the tool like a normal shell command, you can add this alias to your shell config:
+```bash
+alias define="uv --directory /home/bcummings/repos/define.py run main.py"
+```
+
+After that, you can run:
+```bash
+define <word>
+```
+
 ## Potential improvements:
 - Clean up and normalize raw output returned by the Wordnik API
 - Improve handling of non-fatal API errors by displaying clear warnings and returning partial results where possible

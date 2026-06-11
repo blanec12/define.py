@@ -2,6 +2,7 @@ import os
 from dotenv import load_dotenv
 from argparse import ArgumentParser
 import requests
+import re
 
 load_dotenv()
 WORDNIK_API_KEY = os.environ.get("WORDNIK_API_KEY")
@@ -110,11 +111,12 @@ def format_word_info(word, pronunciations, definitions, related_words):
         for i, defn in enumerate(definitions, 1):
             part_of_speech = defn.get("partOfSpeech", "N/A")
             text = defn.get("text", "N/A")
+            clean_text = re.sub(r"</?[^>]+>", "", text)
 
             if part_of_speech:
-                lines.append(f"   {i}. [{part_of_speech}] {text}")
+                lines.append(f"   {i}. [{part_of_speech}] {clean_text}")
             else:
-                lines.append(f"  {i}. {text}")
+                lines.append(f"  {i}. {clean_text}")
 
     if related_words:
         lines.append("\nRELATED WORDS:")
